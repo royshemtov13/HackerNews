@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  hackernews:
+    build:
+      context: .
+      dockerfile: hackernews/Dockerfile
+    container_name: hackernews
+    restart: always
+    environment:
+      POSTGRES_URL: ""
+      
