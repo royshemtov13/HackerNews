@@ -3,17 +3,14 @@ name = "hackernews"
 version = "0.1.0"
 description = ""
 authors = ["Roy Shemtov <royshemtov13@gmail.com>"]
-readme = "README.md"
-packages = [{ include = "hackernews" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"
 fastapi = "^0.110.0"
-sqlalchemy = "^2.0.27"
-httpx = "^0.27.0"
-pydantic = "^2.6.3"
-databases = "^0.9.0"
 uvicorn = "^0.27.1"
+sqlmodel = "^0.0.16"
+pydantic-settings = "^2.2.1"
+psycopg2-binary = "^2.9.9"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,12 +1,35 @@
-version: "3.9"
-
+version: "3.9"  
+  
 services:
-  hackernews:
+
+  postgres:
+    image: postgres
+    container_name: postgres  
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hackernews
+    restart: always
+
+  api:  
+    container_name: api
+    depends_on:  
+      - postgres
     build:
       context: .
-      dockerfile: hackernews/Dockerfile
-    container_name: hackernews
-    restart: always
+      dockerfile: Dockerfile  
     environment:
-      POSTGRES_URL: ""
-      
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: hackernews
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    ports:  
+      - "8000:8000"
+  
+volumes:  
+  postgres_data:
