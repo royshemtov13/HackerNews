@@ -1,2 +1,5 @@
-run:
-	poetry run uvicorn hackernews.app:app --reload
+up:
+	docker compose up -d --build
+
+down:
+	docker compose down
