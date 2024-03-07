@@ -13,7 +13,4 @@ def get_posts(session: Session = Depends(get_session)) -> list[PostResponse]:
     with session as db:
         statement = select(Post)
         posts = db.exec(statement).all()
-        return [
-            PostResponse(id=post.id, content=post.content, upvotes=post.upvotes)
-            for post in posts
-        ]
+        return [PostResponse(id=post.id, content=post.content) for post in posts]
