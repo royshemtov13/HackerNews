@@ -8,3 +8,4 @@ class PostCreate(BaseModel):
 class PostResponse(BaseModel):
     id: int
     content: str
+    upvotes: int

@@ -3,7 +3,8 @@ from functools import cache
 import sqlalchemy
 from sqlmodel import SQLModel, create_engine
 
-from hackernews.models.post import Post  # noqa
+from hackernews.models.post import Posts  # noqa
+from hackernews.models.user import Users  # noqa
 from hackernews.settings import settings
 
 
